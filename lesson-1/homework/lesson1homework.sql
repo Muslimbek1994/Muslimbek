@@ -23,3 +23,31 @@ Replication and Backup: Offers robust replication, backup, and restore features 
 Windows Authentication: Uses Windows credentials for access; ideal for integration with Active Directory.
 
 SQL Server Authentication: Requires a username and password specific to SQL Server.*/
+
+--MEDIUM
+CREATE DATABASE SchoolDB;
+CREATE TABLE Students (
+StudentID INT PRIMARY KEY,
+NAME VARCHAR(50),
+AGE INT
+);
+SELECT * FROM Students;
+
+/*Differences Between SQL Server, SSMS, and SQL
+SQL Server:
+
+A relational database management system (RDBMS) developed by Microsoft. It is the engine where databases are stored, processed, and queried.
+
+Think of it as the "backend server" that handles data storage, management, and security.
+
+SSMS (SQL Server Management Studio):
+
+A graphical user interface (GUI) tool that allows users to interact with SQL Server.
+
+Developers and database administrators (DBAs) use it to run queries, design databases, monitor performance, and handle other database management tasks.
+
+SQL (Structured Query Language):
+
+A programming language used to communicate with and manipulate databases.
+
+It is a standard language, not limited to SQL Server, and can be used with other database systems (e.g., MySQL, PostgreSQL, Oracle).*/

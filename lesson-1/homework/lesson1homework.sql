@@ -51,3 +51,41 @@ SQL (Structured Query Language):
 A programming language used to communicate with and manipulate databases.
 
 It is a standard language, not limited to SQL Server, and can be used with other database systems (e.g., MySQL, PostgreSQL, Oracle).*/
+##hard
+SQL commands are categorized into five types:
+- DQL (Data Query Language): Used to retrieve data.*/
+SELECT * FROM Students;
+
+- DML (Data Manipulation Language): Used to modify data.INSERT INTO Students (ID, Name, Age) VALUES (1, 'Alice', 20);
+UPDATE Students SET Age = 21 WHERE ID = 1;
+DELETE FROM Students WHERE ID = 1;
+
+- DDL (Data Definition Language): Used to define database structures.CREATE TABLE Students (ID INT, Name VARCHAR(50), Age INT);
+ALTER TABLE Students ADD COLUMN Grade VARCHAR(10);
+DROP TABLE Students;
+
+- DCL (Data Control Language): Used for permissions.
+GRANT SELECT ON Students TO User1;
+REVOKE SELECT ON Students FROM User1;
+
+- TCL (Transaction Control Language): Used to manage transactions.BEGIN TRANSACTION;
+UPDATE Students SET Age = 22 WHERE ID = 2;
+COMMIT;
+
+
+For more details, you can check this resource.
+8. Insert Three Records into Students Table*/
+INSERT INTO Students (ID, Name, Age) VALUES
+(1, 'Alice', 20),
+(2, 'Bob', 21),
+(3, 'Charlie', 22);
+
+
+--9. Backup and Restore SchoolDB Database
+Backup:
+BACKUP DATABASE SchoolDB TO DISK = 'C:\Backups\SchoolDB.bak';
+
+
+Restore:
+RESTORE DATABASE SchoolDB FROM DISK = 'C:\Backups\SchoolDB.bak';
+

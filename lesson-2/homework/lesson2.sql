@@ -87,3 +87,57 @@ EXEC sp_rename 'Employees', 'StaffMembers';
 
 --16. Write a query to completely remove the `Departments` table from the database. 
 drop table Departments
+--Advanced-Level Tasks (9)
+--17. Create a table named Products with at least 5 columns, including: ProductID (Primary Key), ProductName (VARCHAR), Category (VARCHAR), Price (DECIMAL)
+CREATE TABLE Products (
+    ProductID INT PRIMARY KEY,
+    ProductName VARCHAR(100),
+    Category VARCHAR(50),
+    Price DECIMAL(10,2),
+    StockQuantity INT
+);
+
+--18. Add a CHECK constraint to ensure Price is always greater than 0.
+CREATE TABLE Products (
+    ProductID INT PRIMARY KEY,
+    ProductName VARCHAR(100),
+    Category VARCHAR(50),
+    Price DECIMAL(10,2) CHECK (Price > 0),
+    StockQuantity INT
+);
+select * from Products
+--19. Modify the table to add a StockQuantity column with a DEFAULT value of 50.
+ALTER TABLE Products
+ADD StockQuantity INT DEFAULT 50;
+
+--20.Rename Category to ProductCategory
+EXEC sp_rename 'Products.Category', 'ProductCategory', 'COLUMN';
+--21. Insert 5 records into the Products table using standard INSERT INTO queries.
+INSERT INTO Products (ProductID, ProductName, ProductCategory, Price, StockQuantity) VALUES 
+(1, 'Laptop', 'Electronics', 899.99, 30);
+
+INSERT INTO Products (ProductID, ProductName, ProductCategory, Price, StockQuantity) VALUES 
+(2, 'Smartphone', 'Electronics', 699.99, 50);
+
+INSERT INTO Products (ProductID, ProductName, ProductCategory, Price, StockQuantity) VALUES 
+(3, 'Desk Chair', 'Furniture', 129.99, 20);
+
+INSERT INTO Products (ProductID, ProductName, ProductCategory, Price, StockQuantity) VALUES 
+(4, 'Coffee Maker', 'Appliances', 59.99, 40);
+
+INSERT INTO Products (ProductID, ProductName, ProductCategory, Price, StockQuantity) VALUES 
+(5, 'Running Shoes', 'Sportswear', 79.99, 60);
+
+--22. Use SELECT INTO to create a backup table called Products_Backup containing all Products data.
+SELECT * INTO Products_Backup
+FROM Products;
+
+--23. Rename the Products table to Inventory.
+EXEC sp_rename 'Products', 'Inventory';
+
+--24.Alter the Inventory table to change the data type of Price from DECIMAL(10,2) to FLOAT.
+ALTER TABLE Inventory
+ALTER COLUMN Price FLOAT;
+
+--25.Add an IDENTITY column named ProductCode that starts from 1000 and increments by 5.
+alter table Products add ProductCode decimal(10,5);
